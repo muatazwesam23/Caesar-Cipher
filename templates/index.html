@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caesar Cipher</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.7);
+            width: 600px;
+        }
+        textarea, input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+        }
+        button {
+            background-color: #03dac6;
+            color: #000000;
+            font-weight: bold;
+            padding: 10px 108px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #00bfa5;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .output {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            word-wrap: break-word;
+        }
+
+input, textarea {
+    direction: ltr;
+    unicode-bidi: plaintext;
+}
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center; color: #03dac6;">Caesar Cipher</h2>
+
+        <form method="POST">
+            <label for="plaintext">Plain Text</label>
+            <textarea name="plaintext" rows="5" placeholder="Enter your text here">{{ plaintext }}</textarea>
+
+            <label for="shift">Shift Value</label>
+            <input type="number" name="shift" value="{{ shift }}">
+
+            <button type="submit">Encrypt</button>
+        </form>
+
+        {% if encrypted %}
+            <div class="output">
+                <label>Encrypted Text</label>
+                <p>{{ encrypted }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
